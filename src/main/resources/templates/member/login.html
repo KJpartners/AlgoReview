@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Default Layout Import-->
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{common/layouts/user_layout}"
+      layout:fragment="Content"
+>
+<head>
+    <title>테스트 페이지!!</title>
+
+    <!-- inline CSS 영역-->
+    <style th:inline="css" type="text/css">
+	        body {
+	            margin: 30px;
+	            border: 1px solid red;
+	        }
+	    </style>
+
+    <!-- inline JS 영역-->
+    <script th:inline="javascript" type="text/javascript">
+	        $(document).ready(() => {
+	            alert("페이지가 시작됩니다.")
+	        });
+	    </script>
+</head>
+
+<body>
+<p th:text="${hello}">message</p>
+<div>
+    <h1>로그인 페이지입니다.</h1>
+    <form action="save">
+        <input type = "text" id ="name" name = "name" value = "name">
+        <input type="submit" value="전송">
+    </form>
+    <form action="save2">
+        <input type = "text" id ="name2" name = "name">
+        <input type="submit" value="전송">
+    </form>
+</div>
+</body>
+</html>
