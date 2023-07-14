@@ -1,6 +1,6 @@
-package algoreview.repository;
+package AlgoReview.repository;
 
-import algoreview.domain.Member;
+import AlgoReview.domain.Member;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

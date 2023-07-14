@@ -1,6 +1,6 @@
-package algoreview.service;
+package AlgoReview.service;
 
-import algoreview.domain.MemberDTO;
+import AlgoReview.domain.MemberDTO;
 
 public interface MemberService {
     //MyBatis 를 이용한 데이터 접근 방법

@@ -1,12 +1,12 @@
-package algoreview.service;
+package AlgoReview.service;
 
-import algoreview.domain.Member;
-import algoreview.domain.MemberDTO;
-import algoreview.mapper.MemberMapper;
+import AlgoReview.domain.Member;
+import AlgoReview.domain.MemberDTO;
+import AlgoReview.mapper.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import algoreview.repository.MemberRepository;
+import AlgoReview.repository.MemberRepository;
 
 @Service
 @Transactional

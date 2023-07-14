@@ -1,4 +1,4 @@
-package algoreview.domain;
+package AlgoReview.domain;
 
 import lombok.Builder;
 import lombok.Data;

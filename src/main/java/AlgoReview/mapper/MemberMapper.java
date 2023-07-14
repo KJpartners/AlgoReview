@@ -1,7 +1,7 @@
-package algoreview.mapper;
+package AlgoReview.mapper;
 
 
-import algoreview.domain.MemberDTO;
+import AlgoReview.domain.MemberDTO;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;

@@ -1,13 +1,13 @@
-package algoreview;
+package AlgoReview;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AlgoreviewApplication {
+public class AlgoReviewApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AlgoreviewApplication.class, args);
+		SpringApplication.run(AlgoReviewApplication.class, args);
 	}
 
 }
