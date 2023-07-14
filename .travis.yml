@@ -1,0 +1,22 @@
+language: java
+jdk:
+- openjdk11
+services:
+- mysql
+branches:
+  only:
+  - main
+before_install:
+- openssl aes-256-cbc -K $encrypted_1116e8e6e492_key -iv $encrypted_1116e8e6e492_iv
+  -in application.yml.enc -out application.yml -d
+- chmod +x gradlew
+cache:
+  directories:
+  - "$HOME/.m2/repository"
+  - "$HOME/.gradle"
+script: "./gradlew clean build"
+notifications:
+  email:
+    recipients:
+    - joungim.cho.chloe@gmail.com
+    - rladlfgks422@gmail.com
