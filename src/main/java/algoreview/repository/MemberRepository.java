@@ -1,4 +1,4 @@
-package repository;
+package algoreview.repository;
 
 import algoreview.domain.Member;
 import org.springframework.stereotype.Repository;
