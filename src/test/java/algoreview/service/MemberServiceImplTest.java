@@ -15,7 +15,6 @@ import algoreview.repository.MemberRepository;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 @Transactional
-@TestPropertySource("classpath:application.yml")
 class MemberServiceImplTest {
     @Autowired
     MemberRepository memberRepository;
