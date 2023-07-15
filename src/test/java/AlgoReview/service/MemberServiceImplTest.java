@@ -8,16 +8,18 @@ import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
 
 //@RunWith(SpringRunner.class)
+@TestPropertySource(locations="application.yml")
 @SpringBootTest(classes = AlgoReviewApplication.class)
 @Transactional
-class MemberServiceImplTest {
+public class MemberServiceImplTest {
     @Autowired
     private MemberRepository memberRepository;
     @Test
-    void jpaSave() {
+    public void jpaSave() {
         //given
         MemberDTO dto = new MemberDTO("kim");
 
