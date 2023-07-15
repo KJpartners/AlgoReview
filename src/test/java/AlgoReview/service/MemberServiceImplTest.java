@@ -6,20 +6,21 @@ import AlgoReview.domain.MemberDTO;
 import AlgoReview.repository.MemberRepository;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
 
 //@RunWith(SpringRunner.class)
-@TestPropertySource(locations="application.yml")
+//@TestPropertySource(locations="application.yml")
 @SpringBootTest(classes = AlgoReviewApplication.class)
 @Transactional
-public class MemberServiceImplTest {
+class MemberServiceImplTest {
     @Autowired
     private MemberRepository memberRepository;
     @Test
-    public void jpaSave() {
+    void jpaSave() {
         //given
         MemberDTO dto = new MemberDTO("kim");
 
