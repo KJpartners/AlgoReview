@@ -17,11 +17,11 @@ import org.springframework.transaction.annotation.Transactional;
 //@TestPropertySource(locations="application.yml")
 @SpringBootTest(classes = AlgoReviewApplication.class)
 @Transactional
-class MemberServiceImplTest {
+public class MemberServiceImplTest {
     @Autowired
     private MemberRepository memberRepository;
     @Test
-    void jpaSave() {
+    public void jpaSave() {
         //given
         MemberDTO dto = new MemberDTO("kim");
 
