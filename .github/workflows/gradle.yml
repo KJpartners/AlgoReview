@@ -33,6 +33,9 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        
+      - name: Install Git Secret
+        uses: EnricoMi/setup-git-secret@v2
 
       - name: Import GPG Key and Decrypt File
         run: |
@@ -43,9 +46,7 @@ jobs:
          # 비밀 키 정보
          gpg --list-secret-keys
          # 비밀 키를 통해 application.yml.secret -> application.yml 복호화 
-         gpg --quiet --batch --yes --decrypt \
-         --passphrase="${{ secrets.GPG_PASSPHRASE }}" \
-         --output application.yml src/main/resources/application.yml.secret
+         git secret reveal application.yml
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
