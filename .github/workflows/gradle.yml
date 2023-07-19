@@ -21,6 +21,7 @@ env:
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: algoreview-deployment-group
   GPG_TTY: $(tty)
   GPG_AGENT_INFO: /dev/null
+  GNUPGHOME: /home/runner/.gnupg
 
 permissions:
   contents: read
@@ -34,7 +35,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Import GPG Key
-        run: gpg --import <(echo "${{ secrets.GPG_PRIVATE_KEY }}")
+        run: gpg --batch --import <(echo "${{ secrets.GPG_PRIVATE_KEY }}")
 
       - name: Decrypt File
         run: |
