@@ -42,15 +42,15 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
 
-    - name: Grant execute permission for decrypt_secret.sh
-      run: chmod +x ./scripts/decrypt_secret.sh
-      shell: bash
+    - name: Set up GPG
+      run: |
+        echo "${{ secrets.GPG_PRIVATE_KEY }}" | base64 -d | gpg --import
+        export GPG_TTY=$(tty)
 
     - name: Decrypt Secret
-      run: ./scripts/decrypt_secret.sh
+      run: gpg --quiet --batch --yes --decrypt --passphrase="$GPG_PASSPHRASE" --output ./src/main/resources/application.yml ./src/main/resources/application.yml.secret
       env:
         GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
-        GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
 
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew # gradle에 실행 권한 추가
