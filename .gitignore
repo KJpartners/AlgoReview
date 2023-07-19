@@ -38,3 +38,5 @@ out/
 
 
 application.yml
+.gitsecret/keys/random_seed
+!*.secret
