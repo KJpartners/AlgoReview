@@ -36,9 +36,13 @@ jobs:
 
       - name: Import GPG Key and Decrypt File
         run: |
+         # 비밀 키 임포트
          gpg --batch --import <(echo "${{ secrets.GPG_PRIVATE_KEY }}")
+         # 공개 키 정보
          gpg --list-keys
+         # 비밀 키 정보
          gpg --list-secret-keys
+         # 비밀 키를 통해 application.yml.secret -> application.yml 복호화 
          gpg --quiet --batch --yes --decrypt \
          --passphrase="${{ secrets.GPG_PASSPHRASE }}" \
          --output application.yml src/main/resources/application.yml.secret
