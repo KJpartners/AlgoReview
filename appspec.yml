@@ -3,7 +3,7 @@ version: 0.0
 os: linux
 
 files:
-  - source:  /
+  - source: /
     destination: /home/ec2-user/app
     overwrite: yes
 
@@ -17,10 +17,10 @@ permissions:
 
 hooks:
   AfterInstall:
-    - location: /home/ec2-user/scripts/stop.sh
+    - location: scripts/stop.sh
       timeout: 60
       runas: ec2-user
   ApplicationStart:
-    - location: /home/ec2-user/scripts/start.sh
+    - location: scripts/start.sh
       timeout: 60
       runas: ec2-user
