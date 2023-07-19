@@ -38,6 +38,7 @@ jobs:
         run: |
          gpg --batch --import <(echo "${{ secrets.GPG_PRIVATE_KEY }}")
          gpg --list-secret-keys
+         gpg --list-secret-keys
          gpg --quiet --batch --yes --decrypt \
          --passphrase="${{ secrets.GPG_PASSPHRASE }}" \
          --output application.yml src/main/resources/application.yml.secret
