@@ -1,1 +1,1 @@
-gpg --quiet --batch --yes --decrypt --passphrase="$GPG_PASSPHRASE" --output ./src/main/resources/application.yml ./src/main/resources/application.yml.secret
+gpg --quiet --batch --yes --decrypt --passphrase="$GPG_PASSPHRASE" --recipient $GPG_SECRET_KEY --output ./src/main/resources/application.yml ./src/main/resources/application.yml.secret
