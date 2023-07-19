@@ -24,6 +24,21 @@ permissions:
   contents: read
 
 jobs:
+  decrypt:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Import GPG Key
+        run: gpg --import <(echo "${{ secrets.GPG_PRIVATE_KEY }}")
+
+      - name: Decrypt File
+        run: |
+          gpg --quiet --batch --yes --decrypt \
+          --passphrase="${{ secrets.GPG_PASSPHRASE }}" \
+          --output application.yml application.yml.secret
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
