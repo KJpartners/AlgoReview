@@ -33,6 +33,11 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+        
+      - name: Install Git Secret
+        run: |
+          sudo apt-get update
+          sudo apt-get install git-secret -y
 
       - name: Import GPG Key and Decrypt File
         run: |
