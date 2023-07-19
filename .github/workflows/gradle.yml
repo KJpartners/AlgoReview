@@ -34,14 +34,12 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
-      - name: Import GPG Key
-        run: gpg --batch --import <(echo "${{ secrets.GPG_PRIVATE_KEY }}")
-
-      - name: Decrypt File
+      - name: Import GPG Key and Decrypt File
         run: |
-          gpg --quiet --batch --yes --decrypt \
-          --passphrase="${{ secrets.GPG_PASSPHRASE }}" \
-          --output application.yml src/main/resources/application.yml.secret
+         gpg --batch --import <(echo "${{ secrets.GPG_PRIVATE_KEY }}")
+         gpg --quiet --batch --yes --decrypt \
+         --passphrase="${{ secrets.GPG_PASSPHRASE }}" \
+         --output application.yml src/main/resources/application.yml.secret
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
