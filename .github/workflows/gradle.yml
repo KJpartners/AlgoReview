@@ -48,7 +48,7 @@ jobs:
          # 비밀 키 정보
          gpg --list-secret-keys
          # 비밀 키를 통해 application.yml.secret -> application.yml 복호화 
-         git secret reveal application.yml
+          git secret reveal -f application.yml.secret
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
