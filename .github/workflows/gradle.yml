@@ -20,6 +20,7 @@ env:
   CODE_DEPLOY_APPLICATION_NAME: algoreview
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: algoreview-deployment-group
   GPG_TTY: $(tty)
+  GPG_AGENT_INFO: /dev/null
 
 permissions:
   contents: read
