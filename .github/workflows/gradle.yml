@@ -19,6 +19,7 @@ env:
   S3_BUCKET_NAME: algoreview-bucket
   CODE_DEPLOY_APPLICATION_NAME: algoreview
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: algoreview-deployment-group
+  GPG_TTY: $(tty)
 
 permissions:
   contents: read
@@ -32,7 +33,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Import GPG Key
-        run: gpg --import <(echo "${{ secrets.GPG_PRIVATE_KEY }}")
+        run: gpg --pinentry-mode loopback --import <(echo "${{ secrets.GPG_PRIVATE_KEY }}")
 
       - name: Decrypt File
         run: |
