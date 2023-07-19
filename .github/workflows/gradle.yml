@@ -19,11 +19,36 @@ env:
   S3_BUCKET_NAME: algoreview-bucket
   CODE_DEPLOY_APPLICATION_NAME: algoreview
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: algoreview-deployment-group
+  GPG_TTY: $(tty)
+  GPG_AGENT_INFO: /dev/null
+  GNUPGHOME: /home/runner/.gnupg
 
 permissions:
   contents: read
 
 jobs:
+  decrypt:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        
+      - name: Install Git Secret
+        run: |
+          sudo apt-get update
+          sudo apt-get install git-secret -y
+
+      - name: Import GPG Key and Decrypt File
+        run: |
+         # 비밀 키 임포트
+         gpg --batch --import <(echo "${{ secrets.GPG_PRIVATE_KEY }}")
+         # 공개 키 정보
+         gpg --list-keys
+         # 비밀 키 정보
+         gpg --list-secret-keys
+         # 비밀 키를 통해 application.yml.secret -> application.yml 복호화 
+          git secret reveal -f application.yml.secret
   deploy:
     name: Deploy
     runs-on: ubuntu-latest
