@@ -43,7 +43,7 @@ mybatis: #mybatis 설정
   mapper-locations: algo review/**/dao/*.xml
 
 server:
-  port: 8080
+  port: 8002
   servlet:
     context-path: /
     encoding:
