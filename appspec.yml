@@ -5,7 +5,8 @@ os: linux
 files:
   - source: /
     destination: /home/ec2-user/app
-    overwrite: yes
+    overwrite: yes # 배포 시 기존 파일을 항상 덮어쓴다.
+    file_exists_behavior: OVERWRITE # 이미 배포가 진행중일 때, 또 다른 배포를 하려고 하면 기존의 진행 중인 배포파일을 덮어쓴다.
 
 
 permissions:
