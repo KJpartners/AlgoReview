@@ -41,7 +41,6 @@ jobs:
         distribution: 'temurin'
     
     # Github-actions secrets에 저장된 암호화 비밀키로 복호화
-    - run: touch ./src/main/resources/application.yml # 파일 생성
     - run: echo "${{ secrets.JASYPT_ENCRYPTOR_ENCRYPTKEY }}" > ./src/main/resources/application.yml # Github secrets 값 입력
     - run: cat ./src/main/resources/application.yml # 확인
 
