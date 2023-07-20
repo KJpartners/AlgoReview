@@ -19,9 +19,9 @@ env:
   S3_BUCKET_NAME: algoreview-bucket
   CODE_DEPLOY_APPLICATION_NAME: algoreview
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: algoreview-deployment-group
-  GPG_TTY: $(tty)
-  GPG_AGENT_INFO: /dev/null
-  GNUPGHOME: /home/runner/.gnupg
+#  GPG_TTY: $(tty)
+#  GPG_AGENT_INFO: /dev/null
+#  GNUPGHOME: /home/runner/.gnupg
 
 permissions:
   contents: read
@@ -40,8 +40,10 @@ jobs:
         java-version: '11'
         distribution: 'temurin'
     
-    # application.yml.secret 복호화
-
+    # Github-actions secrets에 저장된 암호화 비밀키로 복호화
+    - run: touch ./src/main/resources/application.yml # 파일 생성
+    - run: echo "${{ secrets.JASYPT_ENCRYPTOR_ENCRYPTKEY }}" > ./src/main/resources/application.yml # Github secrets 값 입력
+    - run: cat ./src/main/resources/application.yml # 확인
 
 
 
