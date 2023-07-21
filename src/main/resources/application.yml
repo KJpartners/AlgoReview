@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: local #local,dev,real
+    active: real #local,dev,real
 
   mvc:
     view: #view 경로 및 확장자 지정
@@ -35,6 +35,7 @@ logging:
 mybatis: #mybatis 설정
   type-aliases-package: algo review.**.vo
   mapper-locations: algo review/**/dao/*.xml
+jasypt:
 
 server:
   port: 8080
