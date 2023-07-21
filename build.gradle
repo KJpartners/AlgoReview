@@ -47,7 +47,8 @@ dependencies {
 	implementation 'nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect'
 
 	//Jasypt
-	implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.4'
+	implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.2'
+	implementation 'org.jasypt:jasypt:1.9.2'
 }
 test {
 	useJUnitPlatform()

@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class JasyptConfig {
-    @Value("${jasypt_encryptor_encryptKey}") // 암호화에 사용하는 키를 환경 변수(jasypt_encryptor_encryptKey)로 등록해서 사용할 경우
+    @Value("${jasypt.encryptKey}") // 암호화에 사용하는 키를 환경 변수(jasypt_encryptor_encryptKey)로 등록해서 사용할 경우
     private String encryptKey;
 
     @Bean("jasyptStringEncryptor")

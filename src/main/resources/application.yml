@@ -29,7 +29,6 @@ jasypt:
   encryptKey: ${jasypt_encryptor_encryptKey}
 
 
-
 logging:
     level:
       # hibernate 가 남기는 모든 로그가 debug모드로 설정
@@ -43,7 +42,7 @@ mybatis: #mybatis 설정
   mapper-locations: algo review/**/dao/*.xml
 
 server:
-  port: 8002
+  port: 8080
   servlet:
     context-path: /
     encoding:
