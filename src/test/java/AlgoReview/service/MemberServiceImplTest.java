@@ -1,7 +1,6 @@
 package AlgoReview.service;
 
 import AlgoReview.AlgoReviewApplication;
-import AlgoReview.config.JasyptConfig;
 import AlgoReview.domain.Member;
 import AlgoReview.domain.MemberDTO;
 import AlgoReview.repository.MemberRepository;

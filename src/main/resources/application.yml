@@ -9,9 +9,9 @@ spring:
 
   datasource: #DB 접속
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/algo?autoReconnect=true
-    username: c##group001
-    password: 1234
+    url: jdbc:mysql://algoreview-db.cufdionufn4s.ap-northeast-2.rds.amazonaws.com:3306/algoreview
+    username: root
+    password: algoreview
     hikari: #커넥션풀
       connection-timeout: 30000 #클라이언트가 pool에 connection을 요청하는데 기다리는 최대시간을 설정 30초
       maximum-pool-size: 10 #최대 커넥션 개수 설정
@@ -37,7 +37,7 @@ mybatis: #mybatis 설정
   mapper-locations: algo review/**/dao/*.xml
 
 server:
-  port: 8002
+  port: 8080
   servlet:
     context-path: /
     encoding:
