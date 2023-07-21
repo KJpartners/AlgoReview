@@ -10,5 +10,5 @@ public class MainController {
     public String login(Model model){
 
         return "member/login";
-    }
+    }  
 }
