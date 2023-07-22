@@ -39,6 +39,7 @@ jasypt:
 
 server:
   port: 8002
+  address: 43.201.226.45
   servlet:
     context-path: /
     encoding:
