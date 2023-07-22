@@ -38,7 +38,7 @@ mybatis: #mybatis 설정
 jasypt:
 
 server:
-  port: 8002
+  port: 8080
   servlet:
     context-path: /
     encoding:
