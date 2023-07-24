@@ -46,9 +46,8 @@ server:
 ---
 
 spring:
-  config: # 스프링부트 2.4.0 이후
-    activate:
-      on-profile: real1 #local,dev,real
+  profiles:
+    active: real1 #local,dev,real
 
 server:
   port: 8002
@@ -56,9 +55,8 @@ server:
 ---
 
 spring:
-  config:
-    activate:
-      on-profile: real2
+  profiles:
+    active: real2
 
 server:
   port: 8003
