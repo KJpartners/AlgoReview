@@ -12,7 +12,7 @@ function find_idle_profile() {
   fi
 
   # 연결되지 않은 profile 저장
-  if [ ${CURRENT_PROFILE} == real1 ]
+  if [ "${CURRENT_PROFILE}" = "real1" ]
   then
     IDLE_PROFILE=real2
   else
