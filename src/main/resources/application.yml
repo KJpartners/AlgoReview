@@ -1,6 +1,4 @@
 spring:
-  profiles:
-    active: real #local,dev,real
 
   mvc:
     view: #view 경로 및 확장자 지정
@@ -35,10 +33,8 @@ logging:
 mybatis: #mybatis 설정
   type-aliases-package: algo review.**.vo
   mapper-locations: algo review/**/dao/*.xml
-jasypt:
 
 server:
-  port: 8002
   address: 0.0.0.0 # IPv4 주소를 통한 연결을 허용 / 안적으면 IPv4, IPv6 모두 포함
   servlet:
     context-path: /
@@ -47,5 +43,23 @@ server:
       charset: UTF-8
       force: true
 
+---
 
+spring:
+  config: # 스프링부트 2.4.0 이후
+    activate:
+      on-profile: real1 #local,dev,real
+
+server:
+  port: 8002
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: real2
+
+server:
+  port: 8003
 
