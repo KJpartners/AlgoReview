@@ -55,8 +55,7 @@ server:
 ---
 
 spring:
-  profiles:
-    active: real2
+  profiles: real2
 
 server:
   port: 8003
