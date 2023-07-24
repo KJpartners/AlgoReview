@@ -3,8 +3,8 @@ version: 0.0
 os: linux
 
 files:
-  - source: /
-    destination: /home/ec2-user/app
+  - source: / # '/' 루트 파일은 전체파일을 의미
+    destination: /home/ec2-user/app # source에서 지정된 파일을 받을 위치
     overwrite: yes # 배포 시 기존 파일을 항상 덮어쓴다.
     file_exists_behavior: OVERWRITE # 이미 배포가 진행중일 때, 또 다른 배포를 하려고 하면 기존의 진행 중인 배포파일을 덮어쓴다.
 
@@ -18,10 +18,14 @@ permissions:
 
 hooks:
   AfterInstall:
-    - location: scripts/stop.sh
+    - location: scripts/stop.sh # Nginx와 연결되어 있지 않은 스프링부트를 종료
       timeout: 60
       runas: ec2-user
   ApplicationStart:
-    - location: scripts/start.sh
+    - location: scripts/start.sh # Nginx와 연결되어 있지 않은 Port로 새 버전의 스프링부트를 시작
+      timeout: 60
+      runas: ec2-user
+  ValidateService:
+    - location: scripts/health.sh # 새 스프링 부트가 정상적으로 실행됐는지 확인
       timeout: 60
       runas: ec2-user
