@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'AlgoReview'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.1-SNAPSHOT'+new Date().format("yyyyMMddHHmmss") //Jar파일명 중복 방지
 
 java {
 	sourceCompatibility = '11'
