@@ -37,7 +37,7 @@ mybatis: #mybatis 설정
   mapper-locations: algo review/**/dao/*.xml
 
 server:
-  port: 8005
+  port: 8003
   address: 0.0.0.0 # IPv4 주소를 통한 연결을 허용 / 안적으면 IPv4, IPv6 모두 포함
   servlet:
     context-path: /
