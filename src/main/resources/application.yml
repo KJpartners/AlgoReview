@@ -60,4 +60,5 @@ spring:
 
 server:
   port: 8003
+  address: 0.0.0.0
 
