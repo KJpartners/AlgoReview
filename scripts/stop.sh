@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+DEPLOY_LOG="/home/ec2-user/app/deploy.log"
+
 ABSPATH=$(readlink -f $0) # 현재 스크립트 파일의 절대 경로
 ABSDIR=$(dirname $ABSPATH) # 현재 스크립트 파일의 디렉토리 경로
 source ${ABSDIR}/profile.sh # 자바 import와 비슷한 기능. profile.sh의 여러 함수 사용 가능
