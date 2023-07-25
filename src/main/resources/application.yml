@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: real1
+    active: real2
 
   mvc:
     view: #view 경로 및 확장자 지정
@@ -60,6 +60,5 @@ spring:
 
 server:
   port: 8003
-  address: 0.0.0.0
 
 

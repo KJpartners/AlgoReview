@@ -15,9 +15,9 @@ IDLE_PID=$(lsof -ti tcp:${IDLE_PORT})
 # 프로세스가 켜져 있으면 종료
 if [ -z "${IDLE_PID}" ]
 then
-  echo "$TIME_NOW > 현재 구동 중인 애플리케이션이 없으므로 종료하지 않습니다."
+  echo "$TIME_NOW > 현재 구동 중인 애플리케이션이 없으므로 종료하지 않습니다." >> $DEPLOY_LOG
 else
-  echo "$TIME_NOW > 실행중인 $IDLE_PID 애플리케이션 종료"
+  echo "$TIME_NOW > 실행중인 $IDLE_PID 애플리케이션 종료" >> $DEPLOY_LOG
   kill -15 ${IDLE_PID}
   sleep 5
 fi

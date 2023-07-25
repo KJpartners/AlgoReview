@@ -19,7 +19,7 @@ function find_idle_profile() {
     IDLE_PROFILE=real1
   fi
 
-  echo "${IDLE_PROFILE}" # IDLE_PROFILE 출력. 스크립트는 값을 반환하는 기능이 없어서 마지막 줄 echo로 출력 후 그 값을 캐치하는 식으로 전송한다. ($(find_idle_profile))
+  echo "IDLE_PROFILE : ${IDLE_PROFILE}" >> $DEPLOY_LOG # IDLE_PROFILE 출력. 스크립트는 값을 반환하는 기능이 없어서 마지막 줄 echo로 출력 후 그 값을 캐치하는 식으로 전송한다. ($(find_idle_profile))
 }
 
 # 쉬고 있는 profile의 port 찾기
