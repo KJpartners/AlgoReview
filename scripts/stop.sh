@@ -1,19 +1,25 @@
 #!/usr/bin/env bash
 
-PROJECT_ROOT="/home/ec2-user/app"
-JAR_FILE="$PROJECT_ROOT/spring-webapp.jar"
+DEPLOY_LOG="/home/ec2-user/app/deploy.log"
 
-DEPLOY_LOG="$PROJECT_ROOT/deploy.log"
+ABSPATH=$(readlink -f $0) # 현재 스크립트 파일의 절대 경로
+ABSDIR=$(dirname $ABSPATH) # 현재 스크립트 파일의 디렉토리 경로
+source ${ABSDIR}/profile.sh # 자바 import와 비슷한 기능. profile.sh의 여러 함수 사용 가능
+
+IDLE_PORT=$(find_idle_port)
 
 TIME_NOW=$(date +%c)
 
 # 현재 구동 중인 애플리케이션 pid 확인
-CURRENT_PID=$(pgrep -f $JAR_FILE)
+echo "> $IDLE_PORT 에서 구동 중인 애플리케이션 pid 확인"
+IDLE_PID=$(lsof -ti tcp:${IDLE_PORT})
 
 # 프로세스가 켜져 있으면 종료
-if [ -z $CURRENT_PID ]; then
-  echo "$TIME_NOW > 현재 실행중인 애플리케이션이 없습니다" >> $DEPLOY_LOG
+if [ -z "${IDLE_PID}" ]
+then
+  echo "$TIME_NOW > 현재 구동 중인 애플리케이션이 없으므로 종료하지 않습니다." >> $DEPLOY_LOG
 else
-  echo "$TIME_NOW > 실행중인 $CURRENT_PID 애플리케이션 종료 " >> $DEPLOY_LOG
-  kill -15 $CURRENT_PID
+  echo "$TIME_NOW > 실행중인 $IDLE_PID 애플리케이션 종료" >> $DEPLOY_LOG
+  kill -15 ${IDLE_PID}
+  sleep 5
 fi

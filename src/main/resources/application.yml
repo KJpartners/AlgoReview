@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: real2
+    active: real1
 
   mvc:
     view: #view 경로 및 확장자 지정
