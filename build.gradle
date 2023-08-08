@@ -50,6 +50,9 @@ dependencies {
 	//Jasypt
 	implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:2.1.2'
 	implementation 'org.jasypt:jasypt:1.9.2'
+
+	// Swagger
+	implementation 'io.springfox:springfox-boot-starter:3.0.0'
 }
 test {
 	useJUnitPlatform()

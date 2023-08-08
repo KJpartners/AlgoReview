@@ -3,6 +3,8 @@ spring:
     active: real1
 
   mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
     view: #view 경로 및 확장자 지정
       prefix: /WEB-INF/views/
       suffix: .jsp

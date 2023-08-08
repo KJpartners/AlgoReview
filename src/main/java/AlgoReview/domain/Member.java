@@ -11,7 +11,7 @@ import javax.persistence.*;
 @Getter
 @ToString
 @Entity //Jpa 가 사용하는 객체임을 의미하는 어노테이션
-@Table(name = "algo") // @Table, Column 어노테이션은 클래스,변수가 각각 테이블,컬럼명과 일치하면 생략할 수 있다.
+@Table(name = "member") // @Table, Column 어노테이션은 클래스,변수가 각각 테이블,컬럼명과 일치하면 생략할 수 있다.
 public class Member {
 
     /*
